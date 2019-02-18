@@ -15,6 +15,7 @@ pipeline {
             stage('List root files') {
          steps {
          sh 'ls -lah'
+         sh 'pwd'
         }
   }
      
