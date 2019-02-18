@@ -12,6 +12,9 @@ pipeline {
             }
         }
         parallel {
+          agent {
+            label "list"
+          }
             stage('List root files') {
              steps {
                sh 'ls -lah'
@@ -19,6 +22,9 @@ pipeline {
             } 
           }
           stage('Download Shiftleft') {
+          agent {
+            label "sl"
+          }
            steps {
              sh 'curl https://www.shiftleft.io/download/sl-latest-linux-x64.tar.gz | tar xvz -C /usr/local/bin'
             }
@@ -46,4 +52,3 @@ pipeline {
         }
     }
 }
-
