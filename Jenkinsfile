@@ -12,10 +12,10 @@ pipeline {
             }
         }
         parallel {
+            stage('List root files') {
           agent {
             label "list"
           }
-            stage('List root files') {
              steps {
                sh 'ls -lah'
                sh 'pwd'
